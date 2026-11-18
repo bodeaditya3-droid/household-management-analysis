@@ -1,0 +1,133 @@
+{
+  "dataset_rows": 10000,
+  "train_rows": 8000,
+  "test_rows": 2000,
+  "random_state": 42,
+  "test_size": 0.2,
+  "numerical_features": [
+    "Household_Size",
+    "Adults",
+    "Children",
+    "Monthly_Household_Income_INR",
+    "Meals_Cooked_Per_Day",
+    "Food_Storage_Quality_1_to_5",
+    "Dining_Out_Days_Per_Week",
+    "Food_Delivery_Orders_Per_Week",
+    "Weekly_Grocery_Spend_INR",
+    "Days_Food_Stored",
+    "Local_Market_Purchase_Share",
+    "Income_Per_Capita_INR",
+    "Grocery_Spend_Per_Capita_INR",
+    "Grocery_Income_Ratio",
+    "Child_Ratio",
+    "Eating_Out_Total_Per_Week",
+    "Storage_Risk_Index",
+    "Habit_Score"
+  ],
+  "categorical_features": [
+    "Work_From_Home",
+    "Meal_Planning",
+    "Grocery_Shopping_Frequency",
+    "Leftover_Reuse_Habit",
+    "Diet_Type",
+    "Season",
+    "Day_Type"
+  ],
+  "cluster_features": [
+    "Household_Size",
+    "Monthly_Household_Income_INR",
+    "Weekly_Grocery_Spend_INR",
+    "Meals_Cooked_Per_Day",
+    "Food_Storage_Quality_1_to_5",
+    "Days_Food_Stored",
+    "Eating_Out_Total_Per_Week",
+    "Habit_Score",
+    "Storage_Risk_Index"
+  ],
+  "waste_level_order": [
+    "Low",
+    "Moderate",
+    "High",
+    "Very_High"
+  ],
+  "best_models": {
+    "waste_regression": {
+      "name": "Extra Trees",
+      "metrics": {
+        "Model": "Extra Trees",
+        "CV_RMSE_Mean": 3.034,
+        "CV_RMSE_Std": 0.358,
+        "Test_RMSE": 2.263,
+        "Test_MAE": 1.638,
+        "Test_R2": 0.999,
+        "Test_MAPE_Pct": 0.61
+      },
+      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\waste_regressor.joblib"
+    },
+    "spend_regression": {
+      "name": "HistGradientBoosting",
+      "metrics": {
+        "Model": "HistGradientBoosting",
+        "CV_RMSE_Mean": 857.462,
+        "CV_RMSE_Std": 93.647,
+        "Test_RMSE": 861.474,
+        "Test_MAE": 552.799,
+        "Test_R2": 0.9948,
+        "Test_MAPE_Pct": 2.0
+      },
+      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\spend_regressor.joblib"
+    },
+    "high_waste_classification": {
+      "name": "HistGradientBoosting",
+      "metrics": {
+        "Model": "HistGradientBoosting",
+        "CV_ROC_AUC_Mean": 0.9992,
+        "Test_Accuracy": 0.9915,
+        "Test_Precision": 0.9818,
+        "Test_Recall": 0.9943,
+        "Test_F1": 0.988,
+        "Test_ROC_AUC": 0.999
+      },
+      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\high_waste_classifier.joblib"
+    },
+    "waste_level_classification": {
+      "name": "Random Forest",
+      "metrics": {
+        "Model": "Random Forest",
+        "CV_Macro_F1_Mean": 0.9857,
+        "Test_Accuracy": 0.9865,
+        "Test_Macro_F1": 0.9862,
+        "Test_Weighted_F1": 0.9865
+      },
+      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\waste_level_classifier.joblib"
+    },
+    "household_clustering": {
+      "optimal_k": 2,
+      "best_silhouette": 0.1631,
+      "segments": {
+        "1": {
+          "name": "Low-Waste Mindful Households",
+          "avg_daily_waste_g": 269.24,
+          "avg_household_size": 3.8,
+          "avg_income_inr": 50554.52,
+          "high_waste_rate_pct": 24.66
+        },
+        "0": {
+          "name": "High-Consumption High-Waste Households",
+          "avg_daily_waste_g": 313.4,
+          "avg_household_size": 4.17,
+          "avg_income_inr": 55199.25,
+          "high_waste_rate_pct": 47.55
+        }
+      },
+      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\household_clusterer.joblib"
+    }
+  },
+  "population_benchmarks": {
+    "mean_daily_waste_g": 288.6,
+    "median_daily_waste_g": 287.0,
+    "p25_daily_waste_g": 234.0,
+    "p75_daily_waste_g": 341.0,
+    "mean_monthly_spend_inr": 33770.51
+  }
+}

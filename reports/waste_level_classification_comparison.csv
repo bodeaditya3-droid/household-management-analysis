@@ -1,0 +1,4 @@
+Model,CV_Macro_F1_Mean,Test_Accuracy,Test_Macro_F1,Test_Weighted_F1
+Random Forest,0.9857,0.9865,0.9862,0.9865
+HistGradientBoosting,0.9836,0.9865,0.9847,0.9865
+Logistic Regression,0.813,0.8335,0.8157,0.833

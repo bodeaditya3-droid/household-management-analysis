@@ -1,0 +1,42 @@
+{
+  "total_households": 10000,
+  "mean_daily_waste_g": 288.6,
+  "median_daily_waste_g": 287.0,
+  "mean_monthly_spend_inr": 33770.51,
+  "high_waste_share_pct": 34.69,
+  "waste_level_distribution_pct": {
+    "Moderate": 43.98,
+    "High": 38.03,
+    "Low": 11.32,
+    "Very_High": 6.67
+  },
+  "top_positive_waste_correlations": {
+    "Household_Size": 0.818,
+    "Children": 0.692,
+    "Child_Ratio": 0.599
+  },
+  "top_negative_waste_correlations": {
+    "Habit_Score": -0.373,
+    "Grocery_Spend_Per_Capita_INR": -0.543,
+    "Income_Per_Capita_INR": -0.549
+  },
+  "mean_waste_by_meal_planning": {
+    "Always": 254.3,
+    "Never": 320.1,
+    "Sometimes": 299.2,
+    "Usually": 276.6
+  },
+  "mean_waste_by_leftover_reuse": {
+    "Always": 264.2,
+    "Never": 322.0,
+    "Often": 284.0,
+    "Sometimes": 294.5
+  },
+  "generated_charts": [
+    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\eda\\01_target_distributions.png",
+    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\eda\\02_correlation_heatmap.png",
+    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\eda\\03_behavioral_habits_impact.png",
+    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\eda\\04_household_demographics_and_season.png",
+    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\eda\\05_storage_and_income_patterns.png"
+  ]
+}

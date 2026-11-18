@@ -1,0 +1,6 @@
+Model,CV_RMSE_Mean,CV_RMSE_Std,Test_RMSE,Test_MAE,Test_R2,Test_MAPE_Pct
+Extra Trees,3.034,0.358,2.263,1.638,0.999,0.61
+Random Forest,5.067,0.511,3.745,2.265,0.9973,0.85
+HistGradientBoosting,8.447,0.24,7.652,5.544,0.9889,2.07
+Ridge Regression,24.82,0.294,24.773,19.515,0.8841,7.29
+Linear Regression,24.82,0.294,24.773,19.515,0.8841,7.29

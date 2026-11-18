@@ -1,0 +1,3 @@
+Cluster,Households,Avg_Household_Size,Avg_Income_INR,Avg_Weekly_Spend_INR,Avg_Habit_Score,Avg_Storage_Risk,Avg_Daily_Waste_Grams,High_Waste_Rate_Pct,Segment_Name
+1,5617,3.8,50554.52,7214.74,6.25,0.83,269.24,24.66,Low-Waste Mindful Households
+0,4383,4.17,55199.25,7937.94,3.6,2.67,313.4,47.55,High-Consumption High-Waste Households

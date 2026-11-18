@@ -1,0 +1,203 @@
+{
+  "best_models": {
+    "waste_regression": {
+      "name": "Extra Trees",
+      "metrics": {
+        "Model": "Extra Trees",
+        "CV_RMSE_Mean": 3.034,
+        "CV_RMSE_Std": 0.358,
+        "Test_RMSE": 2.263,
+        "Test_MAE": 1.638,
+        "Test_R2": 0.999,
+        "Test_MAPE_Pct": 0.61
+      },
+      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\waste_regressor.joblib"
+    },
+    "spend_regression": {
+      "name": "HistGradientBoosting",
+      "metrics": {
+        "Model": "HistGradientBoosting",
+        "CV_RMSE_Mean": 857.462,
+        "CV_RMSE_Std": 93.647,
+        "Test_RMSE": 861.474,
+        "Test_MAE": 552.799,
+        "Test_R2": 0.9948,
+        "Test_MAPE_Pct": 2.0
+      },
+      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\spend_regressor.joblib"
+    },
+    "high_waste_classification": {
+      "name": "HistGradientBoosting",
+      "metrics": {
+        "Model": "HistGradientBoosting",
+        "CV_ROC_AUC_Mean": 0.9992,
+        "Test_Accuracy": 0.9915,
+        "Test_Precision": 0.9818,
+        "Test_Recall": 0.9943,
+        "Test_F1": 0.988,
+        "Test_ROC_AUC": 0.999
+      },
+      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\high_waste_classifier.joblib"
+    },
+    "waste_level_classification": {
+      "name": "Random Forest",
+      "metrics": {
+        "Model": "Random Forest",
+        "CV_Macro_F1_Mean": 0.9857,
+        "Test_Accuracy": 0.9865,
+        "Test_Macro_F1": 0.9862,
+        "Test_Weighted_F1": 0.9865
+      },
+      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\waste_level_classifier.joblib"
+    },
+    "household_clustering": {
+      "optimal_k": 2,
+      "best_silhouette": 0.1631,
+      "segments": {
+        "1": {
+          "name": "Low-Waste Mindful Households",
+          "avg_daily_waste_g": 269.24,
+          "avg_household_size": 3.8,
+          "avg_income_inr": 50554.52,
+          "high_waste_rate_pct": 24.66
+        },
+        "0": {
+          "name": "High-Consumption High-Waste Households",
+          "avg_daily_waste_g": 313.4,
+          "avg_household_size": 4.17,
+          "avg_income_inr": 55199.25,
+          "high_waste_rate_pct": 47.55
+        }
+      },
+      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\household_clusterer.joblib"
+    }
+  },
+  "top_5_waste_drivers": [
+    {
+      "Feature": "Household_Size",
+      "Importance_Mean": 75.4371,
+      "Importance_Std": 0.279
+    },
+    {
+      "Feature": "Habit_Score",
+      "Importance_Mean": 28.6056,
+      "Importance_Std": 0.3521
+    },
+    {
+      "Feature": "Meal_Planning",
+      "Importance_Mean": 14.8341,
+      "Importance_Std": 0.4131
+    },
+    {
+      "Feature": "Children",
+      "Importance_Mean": 9.9619,
+      "Importance_Std": 0.1384
+    },
+    {
+      "Feature": "Leftover_Reuse_Habit",
+      "Importance_Mean": 6.9811,
+      "Importance_Std": 0.1101
+    }
+  ],
+  "top_5_high_waste_drivers": [
+    {
+      "Feature": "Household_Size",
+      "Importance_Mean": 0.1594,
+      "Importance_Std": 0.0034
+    },
+    {
+      "Feature": "Habit_Score",
+      "Importance_Mean": 0.0194,
+      "Importance_Std": 0.0014
+    },
+    {
+      "Feature": "Meals_Cooked_Per_Day",
+      "Importance_Mean": 0.0054,
+      "Importance_Std": 0.0003
+    },
+    {
+      "Feature": "Children",
+      "Importance_Mean": 0.0022,
+      "Importance_Std": 0.0002
+    },
+    {
+      "Feature": "Meal_Planning",
+      "Importance_Mean": 0.0013,
+      "Importance_Std": 0.0004
+    }
+  ],
+  "binary_classification_report": {
+    "No": {
+      "precision": 0.9968871595330739,
+      "recall": 0.9899536321483772,
+      "f1-score": 0.9934082977898411,
+      "support": 1294.0
+    },
+    "Yes": {
+      "precision": 0.9818181818181818,
+      "recall": 0.9943342776203966,
+      "f1-score": 0.988036593947924,
+      "support": 706.0
+    },
+    "accuracy": 0.9915,
+    "macro avg": {
+      "precision": 0.9893526706756279,
+      "recall": 0.9921439548843869,
+      "f1-score": 0.9907224458688826,
+      "support": 2000.0
+    },
+    "weighted avg": {
+      "precision": 0.991567810399717,
+      "recall": 0.9915,
+      "f1-score": 0.9915120863336443,
+      "support": 2000.0
+    }
+  },
+  "multiclass_classification_report": {
+    "Low": {
+      "precision": 0.9819819819819819,
+      "recall": 0.9646017699115044,
+      "f1-score": 0.9732142857142857,
+      "support": 226.0
+    },
+    "Moderate": {
+      "precision": 0.9808558558558559,
+      "recall": 0.9897727272727272,
+      "f1-score": 0.9852941176470589,
+      "support": 880.0
+    },
+    "High": {
+      "precision": 0.9933862433862434,
+      "recall": 0.9868593955321945,
+      "f1-score": 0.990112063282795,
+      "support": 761.0
+    },
+    "Very_High": {
+      "precision": 0.9925373134328358,
+      "recall": 1.0,
+      "f1-score": 0.9962546816479401,
+      "support": 133.0
+    },
+    "accuracy": 0.9865,
+    "macro avg": {
+      "precision": 0.9871903486642292,
+      "recall": 0.9853084731791065,
+      "f1-score": 0.9862187870730199,
+      "support": 2000.0
+    },
+    "weighted avg": {
+      "precision": 0.9865277374922897,
+      "recall": 0.9865,
+      "f1-score": 0.9864912024591117,
+      "support": 2000.0
+    }
+  },
+  "generated_charts": [
+    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\evaluation\\01_waste_regression_evaluation.png",
+    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\evaluation\\02_spend_regression_evaluation.png",
+    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\evaluation\\03_high_waste_classification_eval.png",
+    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\evaluation\\04_waste_level_confusion_matrix.png",
+    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\evaluation\\05_feature_importance.png",
+    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\evaluation\\06_household_clusters.png"
+  ]
+}

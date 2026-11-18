@@ -1,0 +1,168 @@
+{
+  "raw_data_path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\dataset\\smart_household_consumption_ml_dataset_10000.csv",
+  "cleaned_data_path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\dataset\\cleaned_household_food_waste_10000.csv",
+  "initial_shape": [
+    10000,
+    23
+  ],
+  "final_shape": [
+    10000,
+    30
+  ],
+  "duplicate_rows_removed": 0,
+  "household_size_mismatches_fixed": 0,
+  "total_missing_values_imputed": 94,
+  "missing_before_by_column": {
+    "Work_From_Home": 15,
+    "Meal_Planning": 16,
+    "Food_Storage_Quality_1_to_5": 23,
+    "Leftover_Reuse_Habit": 25,
+    "Weekly_Grocery_Spend_INR": 15
+  },
+  "missing_after": 0,
+  "imputation_values": {
+    "Work_From_Home": "Never",
+    "Meal_Planning": "Sometimes",
+    "Grocery_Shopping_Frequency": "2-3_times_week",
+    "Leftover_Reuse_Habit": "Often",
+    "Diet_Type": "Vegetarian",
+    "Season": "Monsoon",
+    "Day_Type": "Weekday",
+    "Food_Storage_Quality_1_to_5": 3.0,
+    "Weekly_Grocery_Spend_INR_global_median": 7528.04
+  },
+  "engineered_features_added": [
+    "Income_Per_Capita_INR",
+    "Grocery_Spend_Per_Capita_INR",
+    "Grocery_Income_Ratio",
+    "Child_Ratio",
+    "Eating_Out_Total_Per_Week",
+    "Storage_Risk_Index",
+    "Habit_Score"
+  ],
+  "outlier_audit": {
+    "Household_Size": {
+      "q1": 2.0,
+      "q3": 6.0,
+      "iqr": 4.0,
+      "lower_bound": -4.0,
+      "upper_bound": 12.0,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    "Adults": {
+      "q1": 1.0,
+      "q3": 3.0,
+      "iqr": 2.0,
+      "lower_bound": -2.0,
+      "upper_bound": 6.0,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    "Children": {
+      "q1": 0.0,
+      "q3": 3.0,
+      "iqr": 3.0,
+      "lower_bound": -4.5,
+      "upper_bound": 7.5,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    "Monthly_Household_Income_INR": {
+      "q1": 38410.75,
+      "q3": 67432.0,
+      "iqr": 29021.25,
+      "lower_bound": -5121.125,
+      "upper_bound": 110963.875,
+      "outlier_count": 22,
+      "outlier_pct": 0.22
+    },
+    "Meals_Cooked_Per_Day": {
+      "q1": 2.1,
+      "q3": 3.0,
+      "iqr": 0.9,
+      "lower_bound": 0.75,
+      "upper_bound": 4.35,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    "Food_Storage_Quality_1_to_5": {
+      "q1": 2.0,
+      "q3": 4.0,
+      "iqr": 2.0,
+      "lower_bound": -1.0,
+      "upper_bound": 7.0,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    "Dining_Out_Days_Per_Week": {
+      "q1": 1.0,
+      "q3": 5.0,
+      "iqr": 4.0,
+      "lower_bound": -5.0,
+      "upper_bound": 11.0,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    "Food_Delivery_Orders_Per_Week": {
+      "q1": 2.0,
+      "q3": 6.0,
+      "iqr": 4.0,
+      "lower_bound": -4.0,
+      "upper_bound": 12.0,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    "Weekly_Grocery_Spend_INR": {
+      "q1": 5862.462,
+      "q3": 9195.823,
+      "iqr": 3333.36,
+      "lower_bound": 862.422,
+      "upper_bound": 14195.863,
+      "outlier_count": 78,
+      "outlier_pct": 0.78
+    },
+    "Days_Food_Stored": {
+      "q1": 2.0,
+      "q3": 6.0,
+      "iqr": 4.0,
+      "lower_bound": -4.0,
+      "upper_bound": 12.0,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    "Local_Market_Purchase_Share": {
+      "q1": 0.31,
+      "q3": 0.73,
+      "iqr": 0.42,
+      "lower_bound": -0.32,
+      "upper_bound": 1.36,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    "Daily_Food_Waste_Grams": {
+      "q1": 234.0,
+      "q3": 341.0,
+      "iqr": 107.0,
+      "lower_bound": 73.5,
+      "upper_bound": 501.5,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    "Estimated_Monthly_Grocery_Spend_INR": {
+      "q1": 26217.5,
+      "q3": 41423.25,
+      "iqr": 15205.75,
+      "lower_bound": 3408.875,
+      "upper_bound": 64231.875,
+      "outlier_count": 74,
+      "outlier_pct": 0.74
+    }
+  },
+  "target_columns": [
+    "Daily_Food_Waste_Grams",
+    "Estimated_Monthly_Grocery_Spend_INR",
+    "Food_Waste_Level",
+    "High_Waste_Household"
+  ]
+}
