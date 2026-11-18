@@ -1,6 +1,6 @@
 {
-  "raw_data_path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\dataset\\smart_household_consumption_ml_dataset_10000.csv",
-  "cleaned_data_path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\dataset\\cleaned_household_food_waste_10000.csv",
+  "raw_data_path": "dataset/smart_household_consumption_ml_dataset_10000.csv",
+  "cleaned_data_path": "dataset/cleaned_household_food_waste_10000.csv",
   "initial_shape": [
     10000,
     23

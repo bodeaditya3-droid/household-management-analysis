@@ -73,6 +73,10 @@ python run_pipeline.py
 streamlit run app.py
 ```
 
+### 4. Streamlit Community Cloud Deployment
+- **Python version:** Select **Python 3.12** (or **3.11**) in Streamlit Community Cloud **Advanced settings** (matching the prebuilt Linux wheels for the pinned scientific stack).
+- **Dependencies:** `requirements.txt` pins the exact versions used during training (`scikit-learn==1.7.2`, `numpy==2.2.6`, `scipy==1.15.3`, `pandas==2.3.3`, `joblib==1.6.0`) so serialized `HistGradientBoosting*` and tree pipelines deserialize cleanly without version skew.
+
 The Streamlit interface includes three tabs:
 1. **Predict Household Waste**: Enter household attributes to get daily/annual food waste estimates, monthly grocery spend, waste risk tier probabilities, household segment, and personalized reduction recommendations.
 2. **Dataset & EDA**: View dataset KPIs, cleaning summary, cleaned data preview, and all generated EDA charts.

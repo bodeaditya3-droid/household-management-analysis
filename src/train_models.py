@@ -3,12 +3,15 @@
 from __future__ import annotations
 
 import json
+import platform
 from pathlib import Path
 from typing import Dict, Tuple
 
 import joblib
 import numpy as np
 import pandas as pd
+import scipy
+import sklearn
 from sklearn.cluster import KMeans
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import (
@@ -45,6 +48,7 @@ from src.config import (
     CLUSTER_MODEL_PATH,
     HIGH_WASTE_CLF_MODEL_PATH,
     MODEL_METADATA_PATH,
+    PROJECT_ROOT,
     RANDOM_STATE,
     REPORTS_DIR,
     SPEND_REG_MODEL_PATH,
@@ -448,12 +452,12 @@ def train_all_models(cleaned_path: Path = CLEANED_DATA_PATH) -> dict:
     # 5. Household K-Means Clustering
     cluster_pipe, k_metrics_df, cluster_profiles_df, cluster_map = _train_household_clustering(df)
 
-    # Persist best models strictly inside models/
-    joblib.dump(best_waste_pipe, WASTE_REG_MODEL_PATH)
-    joblib.dump(best_spend_pipe, SPEND_REG_MODEL_PATH)
-    joblib.dump(best_hw_pipe, HIGH_WASTE_CLF_MODEL_PATH)
-    joblib.dump(best_lvl_pipe, WASTE_LEVEL_CLF_MODEL_PATH)
-    joblib.dump(cluster_pipe, CLUSTER_MODEL_PATH)
+    # Persist best models strictly inside models/ with lossless compression
+    joblib.dump(best_waste_pipe, WASTE_REG_MODEL_PATH, compress=3)
+    joblib.dump(best_spend_pipe, SPEND_REG_MODEL_PATH, compress=3)
+    joblib.dump(best_hw_pipe, HIGH_WASTE_CLF_MODEL_PATH, compress=3)
+    joblib.dump(best_lvl_pipe, WASTE_LEVEL_CLF_MODEL_PATH, compress=3)
+    joblib.dump(cluster_pipe, CLUSTER_MODEL_PATH, compress=3)
 
     # Save model comparison tables strictly inside reports/
     waste_comp_df.to_csv(REPORTS_DIR / "waste_regression_comparison.csv", index=False)
@@ -469,8 +473,19 @@ def train_all_models(cleaned_path: Path = CLEANED_DATA_PATH) -> dict:
         roc_df[model_name] = np.round(probs, 6)
     roc_df.to_csv(REPORTS_DIR / "binary_test_probabilities.csv", index=False)
 
-    # Persist metadata for evaluation & Streamlit inference
+    # Persist metadata for evaluation & Streamlit inference (portable relative paths)
+    def _rel(path: Path) -> str:
+        return path.relative_to(PROJECT_ROOT).as_posix()
+
     metadata = {
+        "training_environment": {
+            "python": platform.python_version(),
+            "numpy": np.__version__,
+            "pandas": pd.__version__,
+            "scipy": scipy.__version__,
+            "scikit_learn": sklearn.__version__,
+            "joblib": joblib.__version__,
+        },
         "dataset_rows": int(len(df)),
         "train_rows": int(len(train_idx)),
         "test_rows": int(len(test_idx)),
@@ -484,28 +499,28 @@ def train_all_models(cleaned_path: Path = CLEANED_DATA_PATH) -> dict:
             "waste_regression": {
                 "name": best_waste_name,
                 "metrics": waste_comp_df.iloc[0].to_dict(),
-                "path": str(WASTE_REG_MODEL_PATH),
+                "path": _rel(WASTE_REG_MODEL_PATH),
             },
             "spend_regression": {
                 "name": best_spend_name,
                 "metrics": spend_comp_df.iloc[0].to_dict(),
-                "path": str(SPEND_REG_MODEL_PATH),
+                "path": _rel(SPEND_REG_MODEL_PATH),
             },
             "high_waste_classification": {
                 "name": best_hw_name,
                 "metrics": hw_comp_df.iloc[0].to_dict(),
-                "path": str(HIGH_WASTE_CLF_MODEL_PATH),
+                "path": _rel(HIGH_WASTE_CLF_MODEL_PATH),
             },
             "waste_level_classification": {
                 "name": best_lvl_name,
                 "metrics": lvl_comp_df.iloc[0].to_dict(),
-                "path": str(WASTE_LEVEL_CLF_MODEL_PATH),
+                "path": _rel(WASTE_LEVEL_CLF_MODEL_PATH),
             },
             "household_clustering": {
                 "optimal_k": int(cluster_pipe.named_steps["kmeans"].n_clusters),
                 "best_silhouette": float(k_metrics_df["silhouette_score"].max()),
                 "segments": cluster_map,
-                "path": str(CLUSTER_MODEL_PATH),
+                "path": _rel(CLUSTER_MODEL_PATH),
             },
         },
         "population_benchmarks": {

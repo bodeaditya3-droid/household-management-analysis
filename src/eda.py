@@ -18,6 +18,7 @@ from src.config import (
     ALL_NUMERICAL_FEATURES,
     CLEANED_DATA_PATH,
     EDA_VIZ_DIR,
+    PROJECT_ROOT,
     RAW_CATEGORICAL_FEATURES,
     REPORTS_DIR,
     TARGET_HIGH_WASTE,
@@ -438,7 +439,9 @@ def run_eda(cleaned_path: Path = CLEANED_DATA_PATH) -> dict:
         "top_negative_waste_correlations": top_neg,
         "mean_waste_by_meal_planning": meal_plan_means,
         "mean_waste_by_leftover_reuse": leftover_means,
-        "generated_charts": [str(p) for p in chart_paths],
+        "generated_charts": [
+            p.resolve().relative_to(PROJECT_ROOT).as_posix() for p in chart_paths
+        ],
     }
 
     with open(REPORTS_DIR / "eda_key_insights.json", "w", encoding="utf-8") as f:

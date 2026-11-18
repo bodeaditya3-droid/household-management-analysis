@@ -13,6 +13,7 @@ from src.config import (
     CLEANED_DATA_PATH,
     LEFTOVER_REUSE_MAP,
     MEAL_PLANNING_MAP,
+    PROJECT_ROOT,
     RAW_CATEGORICAL_FEATURES,
     RAW_DATA_PATH,
     RAW_NUMERICAL_FEATURES,
@@ -199,8 +200,8 @@ def clean_dataset(
     df.to_csv(cleaned_path, index=False)
 
     summary = {
-        "raw_data_path": str(raw_path),
-        "cleaned_data_path": str(cleaned_path),
+        "raw_data_path": raw_path.resolve().relative_to(PROJECT_ROOT).as_posix(),
+        "cleaned_data_path": cleaned_path.resolve().relative_to(PROJECT_ROOT).as_posix(),
         "initial_shape": [initial_rows, initial_cols],
         "final_shape": [int(df.shape[0]), int(df.shape[1])],
         "duplicate_rows_removed": duplicate_rows,

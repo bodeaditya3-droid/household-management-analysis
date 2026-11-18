@@ -1,4 +1,12 @@
 {
+  "training_environment": {
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "scikit_learn": "1.7.2",
+    "joblib": "1.6.0"
+  },
   "dataset_rows": 10000,
   "train_rows": 8000,
   "test_rows": 2000,
@@ -62,7 +70,7 @@
         "Test_R2": 0.999,
         "Test_MAPE_Pct": 0.61
       },
-      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\waste_regressor.joblib"
+      "path": "models/waste_regressor.joblib"
     },
     "spend_regression": {
       "name": "HistGradientBoosting",
@@ -75,7 +83,7 @@
         "Test_R2": 0.9948,
         "Test_MAPE_Pct": 2.0
       },
-      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\spend_regressor.joblib"
+      "path": "models/spend_regressor.joblib"
     },
     "high_waste_classification": {
       "name": "HistGradientBoosting",
@@ -88,7 +96,7 @@
         "Test_F1": 0.988,
         "Test_ROC_AUC": 0.999
       },
-      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\high_waste_classifier.joblib"
+      "path": "models/high_waste_classifier.joblib"
     },
     "waste_level_classification": {
       "name": "Random Forest",
@@ -99,7 +107,7 @@
         "Test_Macro_F1": 0.9862,
         "Test_Weighted_F1": 0.9865
       },
-      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\waste_level_classifier.joblib"
+      "path": "models/waste_level_classifier.joblib"
     },
     "household_clustering": {
       "optimal_k": 2,
@@ -120,7 +128,7 @@
           "high_waste_rate_pct": 47.55
         }
       },
-      "path": "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\models\\household_clusterer.joblib"
+      "path": "models/household_clusterer.joblib"
     }
   },
   "population_benchmarks": {

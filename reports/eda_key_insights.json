@@ -33,10 +33,10 @@
     "Sometimes": 294.5
   },
   "generated_charts": [
-    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\eda\\01_target_distributions.png",
-    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\eda\\02_correlation_heatmap.png",
-    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\eda\\03_behavioral_habits_impact.png",
-    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\eda\\04_household_demographics_and_season.png",
-    "D:\\ML_smart household mnagement\\Smart_Household_Food_Waste_ML\\visualizations\\eda\\05_storage_and_income_patterns.png"
+    "visualizations/eda/01_target_distributions.png",
+    "visualizations/eda/02_correlation_heatmap.png",
+    "visualizations/eda/03_behavioral_habits_impact.png",
+    "visualizations/eda/04_household_demographics_and_season.png",
+    "visualizations/eda/05_storage_and_income_patterns.png"
   ]
 }

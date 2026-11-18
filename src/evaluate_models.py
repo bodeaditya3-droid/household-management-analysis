@@ -32,6 +32,7 @@ from src.config import (
     EVAL_VIZ_DIR,
     HIGH_WASTE_CLF_MODEL_PATH,
     MODEL_METADATA_PATH,
+    PROJECT_ROOT,
     RANDOM_STATE,
     REPORTS_DIR,
     SPEND_REG_MODEL_PATH,
@@ -495,7 +496,9 @@ def evaluate_all_models(cleaned_path: Path = CLEANED_DATA_PATH) -> dict:
         "top_5_high_waste_drivers": hw_imp_df.head(5).to_dict(orient="records"),
         "binary_classification_report": binary_report,
         "multiclass_classification_report": multiclass_report,
-        "generated_charts": [str(p) for p in charts],
+        "generated_charts": [
+            p.resolve().relative_to(PROJECT_ROOT).as_posix() for p in charts
+        ],
     }
 
     with open(REPORTS_DIR / "evaluation_summary.json", "w", encoding="utf-8") as f:
